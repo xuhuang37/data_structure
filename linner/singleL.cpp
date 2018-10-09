@@ -5,18 +5,20 @@ typedef struct LNode {
     struct LNode *next;
 }LNode, *LinkList;
 
-LinkList CreateListR(LinkList &L);
+LinkList CreateListH(LinkList &L);
+LinkList CreateListR(LinkList &head);
 LNode* getElem(LinkList L,int i);
 
 int main(int argc, char const *argv[])
 {
     LinkList l;
-    l = CreateListR(l);
+    // l = CreateListR(l);
+    l = CreateListH(l);
     printf("%d", getElem(l,2)->data);
     return 0;
 }
 
-LinkList CreateListR(LinkList &L){
+LinkList CreateListH(LinkList &L){
     LNode *s; //做next指针的中间变量
     int x;// as a transit variable
     L = (LinkList)malloc(sizeof(LNode));// apply for space for variable
@@ -32,16 +34,18 @@ LinkList CreateListR(LinkList &L){
     return L;
 }
 
-LinkList CreateListH(LinkList &head){
-    LNode *s,*t;
-    int x;
+LinkList CreateListR(LinkList &head){
+    int x; //data的中间变量
     head = (LinkList)malloc(sizeof(LNode));
+    LNode *s,*r;
+    r = head;
     head->next = NULL;
     scanf("%d",&x);
     while(x!=9999){
         s = (LNode*)malloc(sizeof(LNode));
         s->data = x;
-        head->next = s;
+        r->next = s;
+        r = s;
         scanf("%d",&x);
     }
     return head;
@@ -58,8 +62,7 @@ LNode* getElem(LinkList L,int i){
         while(p&&j<i){
             p = p->next;
             j++;
-        }
+        };
+        return p;
     }
-    return p;
-
 }
