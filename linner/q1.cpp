@@ -12,7 +12,6 @@ LinkList createNoSameLinkList(LinkList &L)
     int n;
     char c;
     LNode *s, *r = L;
-    // scanf("%d", &n);
     std::cin>> n;
     std::cout<< n << std::endl;
     for (int i = 0; i < n; i++)
