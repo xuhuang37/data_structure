@@ -40,6 +40,13 @@ void reverseToEnd(int j, int k, int ary[], int m)
     reverse(k - m, k, ary);
 }
 
+// q3
+
+void reservePart(int j,int k,int ary[], int m){
+    reverseInM(j,m,ary,m);
+    reverseInM(k-m,k,ary,m);
+}
+
 // linklist reverse
 
 void createLinkList(LinkList &L)
